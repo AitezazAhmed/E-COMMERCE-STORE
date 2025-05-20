@@ -73,9 +73,9 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: "Invalid Credentials" });
     }
 
-    const token = setUser(user);
+   const token = setUser(user);
     res.cookie("uid", token, {
-      maxAge: 7 * 24 * 60 * 60 * 1000,
+      maxAge: 60 * 60 * 1000, // 1 hour
       httpOnly: true,
       sameSite: "strict",
       secure: process.env.NODE_ENV !== "development",
@@ -150,5 +150,12 @@ export const refreshToken = async (req, res) => {
     console.log("Error in refreshToken controller", error.message);
     res.status(500).json({ message: "Server error", error: error.message });
   }
+};
+export const checkAuth = async (req, res) => {
+	try {
+		res.json(req.user);
+	} catch (error) {
+		res.status(500).json({ message: "Server error", error: error.message });
+	}
 };
 
