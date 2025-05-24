@@ -3,7 +3,7 @@ import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar"
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
-import CartPage from "./pages/CartPage"
+import CategoryPage from "../src/pages/CategoryPage"
 import { Toaster } from 'react-hot-toast';
 import { useEffect } from "react";
 import LoadingSpinner from "./components/LoadingSpinner";
@@ -35,6 +35,7 @@ const App = () => {
 						path='/secret-dashboard'
 						element={user?.role === "admin" ? <AdminPage /> : <Navigate to='/login' />}
 					/>
+					<Route path='/category/:category' element={<CategoryPage />} />
 				</Routes>
     </div>
 	<Toaster />
