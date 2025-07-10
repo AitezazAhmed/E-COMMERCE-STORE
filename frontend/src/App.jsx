@@ -10,6 +10,7 @@ import LoadingSpinner from "./components/LoadingSpinner";
 import { useUserStore } from "./stores/useUserStore";
 import AdminPage from './pages/AdminPage';
 import { useCartStore } from './stores/useCartStore';
+import CartPage from './pages/CartPage';
 const App = () => {
 	const { user, checkAuth, checkingAuth, } = useUserStore();
 	const{getCartItems}= useCartStore()
@@ -41,6 +42,7 @@ const App = () => {
 						path='/secret-dashboard'
 						element={user?.role === "admin" ? <AdminPage /> : <Navigate to='/login' />}
 					/>
+					<Route path='/cart' element={user ? <CartPage /> : <Navigate to='/login' />} />
 					<Route path='/category/:category' element={<CategoryPage />} />
 				</Routes>
     </div>
