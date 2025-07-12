@@ -6,7 +6,7 @@ import authRoutes from "./routes/auth.route.js"
 import productRoutes from "./routes/productRoute.js"
 import cartRoutes from "./routes/cartRoutes.js"
 import couponRoutes from "./routes/coupon.route.js"
-import paymentRoutes from "./routes/coupon.route.js"
+import paymentRoutes from "./routes/payment.route.js"
 import {connectDB} from "./lib/db.js"
 import cookieParser from "cookie-parser";
 
