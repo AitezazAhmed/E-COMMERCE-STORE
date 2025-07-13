@@ -16,9 +16,13 @@ const PORT=process.env.PORT || 5000
 app.use(express.json())
 app.use(cookieParser());
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://your-frontend.vercel.app'],
+  origin: [
+    'http://localhost:5173', // for local development
+    'https://e-commerce-store-5c9i.vercel.app' // ✅ your live frontend
+  ],
   credentials: true,
 }));
+
 
 app.use("/api/auth",authRoutes)
 app.use("/api/products",productRoutes)
