@@ -21,6 +21,7 @@ app.use(cors({
     'https://e-commerce-store-5c9i.vercel.app' // ✅ your live frontend
   ],
   credentials: true,
+  origin: allowedOrigins,
 }));
 
 
