@@ -15,13 +15,8 @@ app.use(express.urlencoded({ limit: '100mb', extended: true }));
 const PORT=process.env.PORT || 5000
 app.use(express.json())
 app.use(cookieParser());
-const allowedOrigins = [
-  "http://localhost:5173", // for local development
-  "https://e-commerce-store-5c9i.vercel.app/" // your deployed frontend
-];
-
 app.use(cors({
-  origin: allowedOrigins,
+  origin: ['http://localhost:5173', 'https://e-commerce-store-5c9i.vercel.app/'],
   credentials: true
 }));
 
