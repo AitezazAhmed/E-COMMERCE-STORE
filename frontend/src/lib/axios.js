@@ -1,10 +1,8 @@
-// In a config file like axios.js
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:5000/api', // or environment-based
-  withCredentials: true, // if you're using cookies (like JWT auth)
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  withCredentials: true, // allows cookies (for JWT)
 });
-
 
 export default instance;
